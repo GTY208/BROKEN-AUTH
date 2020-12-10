@@ -1,7 +1,6 @@
 <?php
 
-// Define DB Params
-// todo 1: zoek uit wat de host, user, password van je database en vul ze hieronder in om de connectie te kunnen maken met je db
+
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
 define("DB_PASS", "");
@@ -25,9 +24,9 @@ class DB{
 
 		if (!$result) {
     		die('<pre>Oops, Error execute query '. $query .'</pre><br><pre>'.'Result code: '. $result .'</pre>');
-   		}
+   		}	
 
-		$row = $this->stmt->fetchAll();
+		$row = $this->stmt->fetch(PDO::FETCH_ASSOC);
 
 		if(!empty($row)){
 			$this->resultSet = $row;
@@ -38,4 +37,4 @@ class DB{
 	}
 }
 
-?>
+?> 
